@@ -15,13 +15,15 @@ return {
     ["ö"] = { "<cmd>bnext<cr>", desc = "Next buffer" },
     ["Ö"] = { "<cmd>bprevious<cr>", desc = "Previous buffer" },
     ["å"] = { "<cmd>GoAlt<cr>", desc = "Alternate file" },
+    ["ä"] = { "i<cr><Esc>", desc = "Insert linebreak" },
+    ["Z"] = { "zz", desc = "Center view" },
+    ["ZZ"] = { "zt", desc = "Top view" },
     ["<leader>,"] = { "<cmd>bprevious<cr>", desc = "Previous buffer" },
     ["<leader>bD"] = {
       function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr)
-          require("astronvim.utils.buffer").close(
-            bufnr)
-        end)
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+        )
       end,
       desc = "Pick to close",
     },
