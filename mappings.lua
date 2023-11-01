@@ -14,6 +14,7 @@ return {
     -- ["<leader>fg"] = { function() require("folke/todo-comments.nvim") end, desc = "Search TODO" },
     ["ö"] = { "<cmd>bnext<cr>", desc = "Next buffer" },
     ["Ö"] = { "<cmd>bprevious<cr>", desc = "Previous buffer" },
+    ["<leader>å"] = { "<cmd>Coverage<cr>", desc = "Enable coverage" },
     ["å"] = { "<cmd>GoAlt<cr>", desc = "Alternate file" },
     ["ä"] = { "i<cr><Esc>", desc = "Insert linebreak" },
     ["Z"] = { "zz", desc = "Center view" },
