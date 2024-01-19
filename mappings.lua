@@ -15,11 +15,14 @@ return {
     ["ö"] = { "<cmd>bnext<cr>", desc = "Next buffer" },
     ["Ö"] = { "<cmd>bprevious<cr>", desc = "Previous buffer" },
     ["<leader>å"] = { "<cmd>Coverage<cr>", desc = "Enable coverage" },
+    ["<leader>lm"] = { "<cmd>GoFillStruct<cr>", desc = "Fill Go struct" },
     ["å"] = { "<cmd>GoAlt<cr>", desc = "Alternate file" },
     ["ä"] = { "i<cr><Esc>", desc = "Insert linebreak" },
     ["Z"] = { "zz", desc = "Center view" },
     ["ZZ"] = { "zt", desc = "Top view" },
     ["<leader>,"] = { "<cmd>bprevious<cr>", desc = "Previous buffer" },
+    ["<leader>lk"] = { function() vim.diagnostic.goto_prev() end, desc = "Previous diagnostic" },
+    ["<leader>lj"] = { function() vim.diagnostic.goto_next() end, desc = "Next diagnostic" },
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
@@ -33,6 +36,9 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+  },
+  i = {
+    ["<C-g>"] = { function() vim.lsp.buf.signature_help() end },
   },
   t = {
     -- setting a mapping to false will disable it

@@ -10,7 +10,7 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
-  -- { import = "astrocommunity.packs.go" },
+  { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.colorscheme.gruvbox-nvim" },
   { "catppuccin/nvim", name = "catppuccin" },
   {
@@ -73,8 +73,8 @@ return {
         auto_reload = true,
         highlights = {
           -- customize highlight groups created by the plugin
-          covered = { fg = "DarkGray" }, -- supports style, fg, bg, sp (see :h highlight-gui)
-          uncovered = { fg = "DarkRed" },
+          covered = { fg = "#999" },
+          uncovered = { fg = "#F07178" },
         },
         signs = {
           -- use your own highlight groups or text markers
