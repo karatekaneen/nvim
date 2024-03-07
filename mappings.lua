@@ -21,8 +21,11 @@ return {
     ["Z"] = { "zz", desc = "Center view" },
     ["ZZ"] = { "zt", desc = "Top view" },
     ["<leader>,"] = { "<cmd>bprevious<cr>", desc = "Previous buffer" },
+    ["§"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
     ["<leader>lk"] = { function() vim.diagnostic.goto_prev() end, desc = "Previous diagnostic" },
     ["<leader>lj"] = { function() vim.diagnostic.goto_next() end, desc = "Next diagnostic" },
+    ["<C-j>"] = { function() vim.lsp.codelens.run() end, desc = "LSP CodeLens run" },
+    ["<C-k>"] = { function() vim.lsp.buf.code_action() end, desc = "LSP code action" },
     ["<leader>bD"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
@@ -31,6 +34,18 @@ return {
       end,
       desc = "Pick to close",
     },
+    ["<leader>fs"] = {
+      function()
+        local aerial_avail, _ = pcall(require, "aerial")
+        if aerial_avail then
+          require("telescope").extensions.aerial.aerial()
+        else
+          require("telescope.builtin").lsp_document_symbols()
+        end
+      end,
+      desc = "Search symbols",
+    },
+    ["°"] = { function() require("aerial").toggle() end, desc = "Symbols outline" },
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
