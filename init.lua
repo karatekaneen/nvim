@@ -47,6 +47,7 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
+      -- "gopls",
       -- "pyright"
     },
     config = {
@@ -79,8 +80,17 @@ return {
               unusedparams = true,
               unusedwrite = true,
               useany = true,
+              deprecated = true,
+              defers = true,
+              composites = true,
+              bools = true,
+              assign = true,
+              fillreturns = true,
+              httpresponse = true,
+              shadow = false,
+              unmarshal = true,
             },
-            usePlaceholders = true,
+            usePlaceholders = false,
             completeUnimported = true,
             staticcheck = true,
             directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },

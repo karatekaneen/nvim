@@ -18,13 +18,21 @@ return {
     dependencies = { -- optional packages
       "ray-x/guihua.lua",
       "neovim/nvim-lspconfig",
+      "williamboman/mason-lspconfig.nvim",
       "nvim-treesitter/nvim-treesitter",
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
-    config = function() require("go").setup() end,
-    event = { "CmdlineEnter" },
+    config = function()
+      require("go").setup {
+        lsp_inlay_hints = {
+          enable = true,
+          show_variable_name = true,
+        },
+      }
+    end,
+    event = { "CmdlineEnter", "BufRead", "BufEnter" },
     ft = { "go", "gomod" },
-    build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+    -- build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
