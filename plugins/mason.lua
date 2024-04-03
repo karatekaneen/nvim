@@ -13,7 +13,7 @@ return {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
     opts = {
-      ensure_installed = { "gomodifytags", "gofumpt", "iferr", "impl", "goimports", "golines" },
+      ensure_installed = { "gomodifytags", "gofumpt", "iferr", "impl", "goimports", "golines", "golangci-lint" },
     },
   },
   {

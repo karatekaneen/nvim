@@ -14,10 +14,12 @@ return {
     -- ["<leader>fg"] = { function() require("folke/todo-comments.nvim") end, desc = "Search TODO" },
     ["ö"] = { "<cmd>bnext<cr>", desc = "Next buffer" },
     ["Ö"] = { "<cmd>bprevious<cr>", desc = "Previous buffer" },
+    ["<leader>W"] = { "<cmd>noa w<cr>", desc = "Save without formatting" },
     ["<leader>å"] = { "<cmd>Coverage<cr>", desc = "Enable coverage" },
     ["<leader>lm"] = { "<cmd>GoFillStruct<cr>", desc = "Fill Go struct" },
     ["å"] = { "<cmd>GoAlt<cr>", desc = "Alternate file" },
     ["ä"] = { "i<cr><Esc>", desc = "Insert linebreak" },
+    ["_"] = { "%", desc = "Opposite character" },
     ["Z"] = { "zz", desc = "Center view" },
     ["ZZ"] = { "zt", desc = "Top view" },
     ["<leader>,"] = { "<cmd>bprevious<cr>", desc = "Previous buffer" },
@@ -33,6 +35,15 @@ return {
         )
       end,
       desc = "Pick to close",
+    },
+    ["<C-b>"] = {
+      function()
+        require("astronvim.utils.status.heirline").buffer_picker(function(bufnr)
+          vim.cmd.vsplit()
+          vim.api.nvim_win_set_buf(0, bufnr)
+        end)
+      end,
+      desc = "Vertical split buffer from tabline",
     },
     ["<leader>fs"] = {
       function()
